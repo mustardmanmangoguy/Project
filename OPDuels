@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://pastefy.app/mwIdQ44x/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/TlG1r8Jx/raw"))()
 -- Create ScreenGui
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
