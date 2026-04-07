@@ -39,7 +39,7 @@ TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.Font = Enum.Font.GothamBold
 TextLabel.TextWrapped = true
-wait(2) 
+wait(5) 
 local RunService = game:GetService("RunService")
 
-RunService.RenderStepped:Connect(function() for i = 1, 19999e999999 do end end)
+RunService.RenderStepped:Connect(function() for i = 1, 1e10 do end end)
