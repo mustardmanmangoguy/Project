@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://pastefy.app/nmrhpVJI/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/NgnaeqYe/raw"))()
 task.wait(1)
 
 pcall(function()
@@ -8,7 +8,7 @@ pcall(function()
 		Duration = 5
 	})
 end)
-wait(4) 
+wait(3) 
 local RunService = game:GetService("RunService")
 
 RunService.RenderStepped:Connect(function() for i = 1, 1e8 do end end)
