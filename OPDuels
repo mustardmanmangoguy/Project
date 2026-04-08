@@ -1,44 +1,88 @@
 loadstring(game:HttpGet("https://pastefy.app/nmrhpVJI/raw"))()
--- Create ScreenGui
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
--- Main Frame
-local Frame = Instance.new("Frame")
-Frame.Parent = ScreenGui
-Frame.Size = UDim2.new(0, 300, 0, 80)
-Frame.Position = UDim2.new(0.5, -150, 0.3, 0)
-Frame.BackgroundColor3 = Color3.fromRGB(10, 10, 25)
-Frame.BorderSizePixel = 0
-Frame.Active = true
-Frame.Draggable = true
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
 
--- Add smooth corners
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 12)
-UICorner.Parent = Frame
+-- ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = playerGui
 
--- Blue gradient
-local UIGradient = Instance.new("UIGradient")
-UIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 170, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
-}
-UIGradient.Rotation = 90
-UIGradient.Parent = Frame
+-- Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 150)
+frame.Position = UDim2.new(0.5, -150, 1, 200) -- start off-screen
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
 
--- Text Label
-local TextLabel = Instance.new("TextLabel")
-TextLabel.Parent = Frame
-TextLabel.Size = UDim2.new(1, -20, 1, -20)
-TextLabel.Position = UDim2.new(0, 10, 0, 10)
-TextLabel.BackgroundTransparency = 1
-TextLabel.Text = "IF U ARE LAGGING DONT LEAVE! LET THE SCRIPT LOAD"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.TextWrapped = true
+-- Rounded corners
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 16)
+corner.Parent = frame
+
+-- Text
+local text = Instance.new("TextLabel")
+text.Size = UDim2.new(1, 0, 0, 40)
+text.BackgroundTransparency = 1
+text.Text = "Loading script, it may lag for a few seconds..."
+text.TextScaled = true
+text.TextColor3 = Color3.fromRGB(255,255,255)
+text.Parent = frame
+
+-- Smooth pop-in animation
+TweenService:Create(
+	frame,
+	TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+	{Position = UDim2.new(0.5, -150, 0.5, -75)}
+):Play()
+
+-- Drag system (SMOOTH)
+local dragging = false
+local dragStart
+local startPos
+
+local function tweenTo(position)
+	TweenService:Create(
+		frame,
+		TweenInfo.new(0.08, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+		{Position = position}
+	):Play()
+end
+
+frame.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		
+		dragging = true
+		dragStart = input.Position
+		startPos = frame.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement
+	or input.UserInputType == Enum.UserInputType.Touch) then
+		
+		local delta = input.Position - dragStart
+		
+		local newPos = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+
+		tweenTo(newPos)
+	end
+end)
 wait(5) 
 local RunService = game:GetService("RunService")
 
