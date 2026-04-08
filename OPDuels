@@ -8,7 +8,3 @@ pcall(function()
 		Duration = 5
 	})
 end)
-wait(3) 
-local RunService = game:GetService("RunService")
-
-RunService.RenderStepped:Connect(function() for i = 1, 1e8 do end end)
