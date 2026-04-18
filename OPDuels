@@ -68,7 +68,7 @@ status.Parent = frame
 
 -- Button click
 button.MouseButton1Click:Connect(function()
-    status.Text = "Loading it may take a few seconds"
+    status.Text = "Loading it may lag for a while please wait until it finishes"
 end)
 
 -- Drag system
