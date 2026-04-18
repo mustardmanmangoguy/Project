@@ -5,7 +5,7 @@ pcall(function()
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Loading",
 		Text = "Loading script, it may lag for a while...",
-		Duration = 5
+		Duration = 60
 	})
 end)
 local RunService = game:GetService("RunService")
