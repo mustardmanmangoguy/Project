@@ -4,7 +4,7 @@ task.wait(1)
 pcall(function()
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Loading",
-		Text = "Loading script, it may lag for a while... Please wait until this notification disappears.",
+		Text = "Loading, it may lag for a while. Please wait until this notification disappears.",
 		Duration = 60
 	})
 end)
