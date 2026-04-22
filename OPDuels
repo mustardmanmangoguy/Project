@@ -1,1 +1,7 @@
-loadstring(game:HttpGet("https://pastefy.app/vjNRsC8g/raw"))()
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Notice",
+    Text = "If Kawatan desync dont show wait for it to load",
+    Duration = 60
+})
+
+loadstring(game:HttpGet("https://pastefy.app/IiGilbhX/raw"))()
