@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://pastefy.app/IiGilbhX/raw"))()
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Loading",
-    Text = "Loading... It will only take 10 seconds or less",
+    Text = "Loading... It will lag for 10 seconds or less",
     Duration = 10
 })
 
