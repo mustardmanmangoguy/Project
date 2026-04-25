@@ -1,19 +1,13 @@
 loadstring(game:HttpGet("https://pastefy.app/IiGilbhX/raw"))()
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "Loading",
-    Text = "Loading... It will lag for 10 seconds or less",
-    Duration = 10
+    Title = "WARNING",
+    Text = "Loading... Script is not fully loaded until this message is gone",
+    Duration = 40
 })
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Notice",
-    Text = "If Kawatan desync dont show wait for it to load",
+    Text = "If Kawatan desync and lagger dont show wait for it to load",
     Duration = 60
 })
-
-local RunService = game:GetService("RunService")
-
-RunService.RenderStepped:Connect(function()
-    for i = 1, 1e7 do end
-end)
