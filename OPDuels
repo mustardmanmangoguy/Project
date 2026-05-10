@@ -1,12 +1,10 @@
-loadstring(game:HttpGet("https://voidexternal.xyz/api/fjwwe74m.lua"))()
+loadstring(game:HttpGet("https://pastefy.app/47KcqSsX/raw"))()
 wait(1) 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "WARNING",
     Text = "Loading... Script is not fully loaded until this message is gone",
     Duration = 40
 })
-getgenv().SCRIPT_KEY = "KEYLESS"
-loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/1de628dfe0388844ff2364a9ea4a170f517e4bb057f7c6ba1e46723ce7445827/download"))()
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Notice",
